@@ -13,6 +13,7 @@ gulp.task('sass', function(){
 //compiles Sass and Inject into Browser
 gulp.task('sassbuild', function(){
     return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss','src/scss/*.scss'])
+    .pipe(sass())
     .pipe(gulp.dest("src/css"))
 });
 
