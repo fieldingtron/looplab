@@ -10,6 +10,12 @@ gulp.task('sass', function(){
     .pipe(browserSync.stream());
 });
 
+//compiles Sass and Inject into Browser
+gulp.task('sassbuild', function(){
+    return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss','src/scss/*.scss'])
+    .pipe(gulp.dest("src/css"))
+});
+
 //move JS Files to src/js
 gulp.task('js', function() { 
     return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js','node_modules/jquery/dist/jquery.min.js','node_modules/popper.js/dist/umd/popper.min.js'])
@@ -40,4 +46,4 @@ return gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
 
 gulp.task('default', ['js', 'serve', 'fa', 'fonts']);
 
-gulp.task("build",['js', 'serve', 'fa', 'fonts']);
+gulp.task("build",['js', 'fa', 'fonts', 'sassbuild']);
