@@ -39,3 +39,5 @@ return gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
 });
 
 gulp.task('default', ['js', 'serve', 'fa', 'fonts']);
+
+gulp.task("build",['js', 'serve', 'fa', 'fonts']);
